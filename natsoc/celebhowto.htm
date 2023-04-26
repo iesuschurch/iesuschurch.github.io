@@ -14,7 +14,7 @@ A:active IMG,A IMG:active {border-color:red;}
       LEFTMARGIN=20 RIGHTMARGIN=20
       STYLE="max-width:1080px;margin:auto;padding:0 20px;">
 
-<A HREF="lied.mp3" ONCLICK="play();return false;" NAME="music">
+<A HREF="lied.mp3" ONCLICK="return play();" NAME="music">
 <IMG SRC="../music.gif" WIDTH=50 HEIGHT=50 ALIGN="right" ALT="Play Music" BORDER=0 STYLE="border:0">
 </A>
 
@@ -142,10 +142,12 @@ var bigImg = false;
 var mp3;
 
 function play() {
+  if (window.Audio === undefined) { return true; }
   if (mp3 === undefined) {
     mp3 = new Audio("lied.mp3");
   }
   mp3.paused ? mp3.play() : mp3.pause();
+  return false;
 }
 
 function resize() {
