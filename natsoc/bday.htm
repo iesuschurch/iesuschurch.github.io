@@ -1,0 +1,86 @@
+<HTML LANG="en">
+<TITLE>How to Sing Happy Birthday in German</TITLE>
+<META NAME="description" CONTENT="How to sing happy birthday in German.">
+<META NAME="keywords" CONTENT="german happy birthday,happy birthday in german,what does zum geburstag mean">
+<META NAME="viewport" CONTENT="width=device-width">
+<BODY BGCOLOR="white" TEXT="black" LINK="black" VLINK="black"
+      ALINK="black">
+
+<H1><FONT SIZE=3 FACE="monospace">
+How to Sing Happy Birthday In German
+</FONT></H1>
+
+<PRE>
+By <A HREF="../index.htm">Iesus Church</A>'s Typewriter | April XX, MMXXIII
+
+The only problem  with singing Happy Birthday in German is that,
+according to <A HREF="https://www.thoughtco.com/birthday-songs-in-german-1444504">ThoughtCo</A>, even in German it is sung in English and only
+occasionally sung in German. And indeed, look up Zum Guberstag (i.e.
+Happy Birthday) and you will find German titles with English songs.
+However, that doesn't stop us from singing it in German. Here are the
+lyrics: (sing to the tune of Happy Birthday:)
+
+Zum Geburtstag viel Gl&uuml;ck,
+Zum Geburtstag viel Gl&uuml;ck,
+Zum Geburtstag alles Gute,
+Zum Geburtstag viel Gl&uuml;ck.
+
+Additionally, here is an <A HREF="https://youtu.be/OF8YS7DUYe8">audio</A> of the song.
+
+Now, that's not a real German song, for <A HREF="https://en.wikipedia.org/wiki/Happy_Birthday_to_You#History">Happy Birthday to You</A> is an
+American song (from Louisville, Kentucky). (That is an example of
+cultural replacement and cultural diffusion, a cancerous effect of
+American globalization and hegemony as that which <A HREF="https://en.wikipedia.org/wiki/Rammstein">Rammstein</A> sung
+against in his famous song <A HREF="https://youtu.be/Rr8ljRgcJNM">Amerika</A>. (Click here to <A HREF="../evils/hegemony.htm">learn more.</A>)) This
+is the <STRONG>traditional</STRONG> German song, Hoch Soll Er Leben <A ONCLICK="return play('leben.mp3',this.firstChild);" HREF="leben.mp3">[Play]</A>:
+
+Hoch soll er leben!
+Hoch soll er leben!
+Dreimal hoch!
+
+Hoch soll er leben!
+Hoch soll er leben!
+Drei mal hoch!
+
+Er leben hoch er leben!
+Hoch er leben hoch!
+El leben hoch er leben!
+Hoch er leben hoch!
+
+Hoch hoch er leben hoch!
+Hoch hoch er leben hoch!
+Hoch hoch hoch hoch!
+
+So, there you have it, <A HREF="celebhowto.htm">happy birthday Hitler.</A> Happy April 20th every-
+body! Heil Hitler! Moreover you can sing <A HREF="lied.mp3">Die Fahne Hoch</A> <A ONCLICK="return play('lied.mp3',this.firstChild);" HREF="lied.mp3">[Play]</A> or
+<A HREF="https://en.wikipedia.org/wiki/Deustchlandlied">Deustchlandlied</A>. Heil! <SMALL>&#21328;</SMALL>
+
+<A HREF="javascript:print()">[Print]</A> | <A HREF="celebhowto.htm">How to Celebrate Hitler's Birthday</A>
+
+Disclaimer: This was actually written on April XXII.
+
+<A HREF="../index.htm">Home</A></PRE>
+
+<SCRIPT>
+var mp3, lastbtn; // <AUDIO>, <A>node
+var playing = false;
+var lastmp3; // String
+
+function play(song, btn) {
+  // If HTML5 <AUDIO> unsupported, treat <A> as link
+  if (window.Audio === undefined) { return true; }
+  lastbtn = btn;
+  lastmp3 = song;
+  if (playing) {
+    btn.data = "[Play]";
+    mp3.pause();
+  } else {
+    mp3 = new Audio(song);
+    mp3.onended = function() {play(lastmp3, lastbtn); };
+    btn.data = "[Stop]";
+    mp3.play();
+  }
+  playing = !playing;
+  return false; // Do not treat <A> as link
+}
+}</SCRIPT></BODY></HTML>
