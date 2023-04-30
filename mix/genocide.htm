@@ -140,7 +140,8 @@ more = "Although they are having children, the " +
 none = "That's right! Their children would all be " +
         "mixes, wherefore there would be no black people. And " +
         "there would be no more white people. Those races " +
-        "would have gone extinct!";
+        "would have gone extinct!",
+output;
 
 function check() {
   var q = document.getElementsByName("q");
@@ -149,8 +150,9 @@ function check() {
     background = "white";
     display = "block";
   }
-  var output = document.getElementById("out").appendChild(document.createTextNode(""));
-  alert(output);
+  if (window.output === undefined) {
+    output = document.getElementById("out").appendChild(document.createTextNode(" "));
+  }
   switch (true) {
     case q[0].checked: // 49.6M
       output.data = same;
