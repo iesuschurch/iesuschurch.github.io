@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<meta charset="us-ascii">
+<meta name="description" content="Oscillator Keyboard">
+<meta name="keywords" content="Oscillator, Piano, Keyboard">
+<title>Oscillator</title>
+<body>
+<button onclick="z();this.remove()"></button>
+<script>
+var t = ["sawtooth","square","sine","triangle"]
+var z=function(){
+
+var a=new AudioContext();
+var b=a.createOscillator();
+b.type=t[0];
+b.start();
+function d(x){b.frequency.value=x};
+function e(){b.disconnect()};
+function f(){b.connect(a.destination)};
+
+onkeypress=function(){
+var c=event.key;
+
+f();
+if(c=="`"){e()};
+if(c==1){d(69)};
+if(c==2){d(77)};
+if(c==3){e()};
+if(c==4){d(92)};
+if(c==5){d(103)};
+if(c==6){d(116)};
+if(c==7){e()};
+if(c==8){d(138)};
+if(c==9){d(155)};
+if(c==0){e()};
+if(c=="-"){d(184)};
+if(c=="="){d(207)};
+
+if(c=="q"){d(73)};
+if(c=="w"){d(82)};
+if(c=="e"){d(87)};
+if(c=="r"){d(98)};
+if(c=="t"){d(110)};
+if(c=="y"){d(123)};
+if(c=="u"){d(130)};
+if(c=="i"){d(146)};
+if(c=="o"){d(164)};
+if(c=="p"){d(174)};
+if(c=="["){d(195)};
+if(c=="]"){d(220)};
+if(c=="\\"){d(246)};
+
+if(c=="a"){d(277)};
+if(c=="s"){d(311)};
+if(c=="d"){e()};
+if(c=="f"){d(369)};
+if(c=="g"){d(415)};
+if(c=="h"){d(466)};
+if(c=="j"){e()};
+if(c=="k"){d(554)};
+if(c=="l"){d(622)};
+if(c==";"){e()};
+if(c=="'"){d(740)};
+if(c=="Enter"){d(831)};
+
+if(c=="z"){d(294)};
+if(c=="x"){d(330)};
+if(c=="c"){d(349)};
+if(c=="v"){d(391)};
+if(c=="b"){d(440)};
+if(c=="n"){d(493)};
+if(c=="m"){d(523)};
+if(c==","){d(587)};
+if(c=="."){d(659)};
+if(c=="/"){d(698)};
+
+if(c=="space"){e()};
+
+//if(c==""){};
+
+};
+
+onkeydown=function(){
+
+var c=event.keyCode;
+if(c==9){f();d(65)};//tab
+if(c==8){f();d(233)};//backspace
+if(event.code=="ShiftLeft"){f();d(262)};//leftShift
+if(event.code=="ShiftRight"){f();d(783)};//rightShift
+if(c==37){};//left
+if(c==39){};//right
+}
+
+onkeyup=function(){
+
+e()
+
+}
+
+}</script>
+</body>
