@@ -1,0 +1,107 @@
+<HTML LANG="en">
+<HEAD>
+<TITLE>Order the Books of the Bible</TITLE>
+<META CHARSET="utf-8">
+</HEAD>
+<BODY BGCOLOR="white" TEXT="black">
+
+<P>Put the books of the Bible in the correct order.</P>
+<TABLE BORDER=1>
+<COLGROUP><COL ALIGN="right"></COLGROUP>
+<TBODY ID="tbody">
+<TR><TH COLSPAN=2 ALIGN="center">Old Testament</TH></TR>
+</TBODY></TABLE>
+<BR>
+<BUTTON TYPE="button" ID="check" ACCESSKEY="c"><U>C</U>heck</BUTTON>
+
+<SCRIPT>
+var tbody = document.getElementById("tbody"),
+    books = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi","Matthew","Mark","Luke","John","Acts","Romans","1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians","Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy","Titus","Philemon","Hebrews","James","1 Peter","2 Peter","1 John","2 John","3 John","Jude","Revelation"],
+    answers = books.slice(),
+    len = books.length,
+    check = document.getElementById("check"),
+    fromNode,// Element
+    dragged; // Element
+
+function removeChecks(node) {
+  // Remove checkmarks or "X"s from commandments, for they have re-ordered them
+  var lastChar = node.data.charAt(node.data.length - 1);
+  if (lastChar !== "✓" &&
+      lastChar !== "✗") { return; }
+  node.data = node.data.slice(0,node.data.length-2);
+}
+
+// Order books in random order
+for (var i = 1; i <= len; i++) {
+  // New Testament header
+  if (i === 40) {
+    var row = document.createElement("tr");
+    var head = document.createElement("th");
+    head.appendChild(document.createTextNode("New Testament"));
+    head.colSpan = 2;
+    head.align = "center";
+    row.appendChild(head);
+    tbody.appendChild(row);
+  }
+  var row = document.createElement("tr");
+
+  // For numbered list
+  var cell = document.createElement("td");
+  cell.appendChild(document.createTextNode(i + ".")); // Write number
+  row.appendChild(cell); // Append number to row
+
+  // For book name
+  cell = document.createElement("td");
+  cell.appendChild(document.createTextNode(books.splice(Math.floor(Math.random()*books.length), 1)[0])); // Remove book from array and return book to write on cell
+  cell.tabIndex = i; // For keyboard access
+  cell.name = "b"; // "b" for book
+  row.appendChild(cell); // Append number to row
+
+  tbody.appendChild(row); // Append row to table
+}
+
+// onDragStart
+document.onmousedown = function() {  document.onmousemove = function() {
+  if (event.srcElement.tagName === "TD" && event.srcElement.name === "b") {
+    fromNode = event.srcElement; // Know which book is being dragged
+    dragged = fromNode.firstChild;
+
+// onDragEnd
+document.onmouseup = function() {
+  if (event.srcElement.tagName === "TD" && event.srcElement.name === "b") {
+    fromNode.replaceChild(event.srcElement.firstChild, fromNode.firstChild);
+    event.srcElement.appendChild(dragged);
+    removeChecks(event.srcElement.firstChild);
+    removeChecks(fromNode.firstChild);
+  }
+  document.onmouseup = null;
+}
+  }
+  document.onmousemove = null;
+}}
+
+
+check.onclick = function() {
+  var off = 1;
+  for (var i = 1; i < 68; i++) { // For every book
+    if (i === 40) {
+      off = 2;
+      continue;
+    }
+    var userAnswer = tbody.rows[i].cells[1];
+    removeChecks(userAnswer.firstChild);
+    var ans = userAnswer.firstChild.data;
+    if (ans === answers[i-off]) {
+      userAnswer.firstChild.data += " ✓";
+      userAnswer.bgColor = "lime";
+    } else {
+      userAnswer.firstChild.data += " ✗";
+      userAnswer.bgColor = "red";
+    }
+  }
+  firstTime = false;
+}
+</SCRIPT>
+
+</BODY>
+</HTML>
