@@ -41,7 +41,7 @@ Welcome to <FONT COLOR="blue">Iesus</FONT>Church
 
 <!-- Left -->
 <A HREF="trth/index.htm">The Truth</A><BR>
-<A HREF="#p0rn" ONCLICK="p0rn()">Pornography Is Evil</A>
+<A HREF="p0rn/index.htm">Pornography Is Evil</A>
 <A HREF="evo/index.htm">Evolution Hoax</A><BR>
 
 </FONT>
@@ -60,7 +60,7 @@ This website provides nothing but L<SMALL>OVE</SMALL> S<SMALL>PEECH</SMALL> and 
 <FONT FACE="sans-serif">
 
 <!-- Right -->
-<A HREF="chrch/index.htm">Skip Church</A><BR>
+<A HREF="recent.htm">Most Recent</A><BR>
 <A HREF="gay/index.htm">Sodomite Sin</A><BR>
 <A HREF="msc/email.htm">Email Me</A>
 
@@ -166,7 +166,11 @@ Go to <A HREF="chrch/dontgo-w.htm"><FONT COLOR="red">
 church</SMALL></U></FONT></A></H2><P>
 
 Churches are <A HREF="chrch/dontgo.htm">EVIL!</A><BR>
-Do <A HREF="chrch/dontgo-w.htm">NOT</A> go to church!
+Do <A HREF="chrch/dontgo-w.htm">NOT</A> go to church!<P>
+
+<CENTER><A HREF="p0rn/index.htm#stop"><FONT FACE="serif"><B>
+STOPP FOCKN MASSTURBATEING!
+</B></FONT></A></CENTER>
 
 </TD><TD>
 
@@ -213,7 +217,8 @@ Women
 <A HREF="wom/rights.htm">Women Do NOT Deserve Rights!</A>
 </P>
 
-<FONT COLOR="red" SIZE=5 FACE="serif"><STRONG>READ!</STRONG></FONT>
+<FONT COLOR="red" SIZE=5 FACE="serif"><STRONG><BLINK>
+READ!</BLINK></STRONG></FONT>
 <BR>
 Reading is good for you.<BR>
 Not enough people read,<BR>
@@ -285,33 +290,5 @@ any questions, ideas, disagreements, etc., <A HREF="msc/email.htm">email me.</A>
 
 </TD></TR></TBODY></TABLE> <!-- Close margin -->
 
-<SCRIPT>
-var b = b2 = false;
-function turnOnTV() {
-  console.log("function called");
-  b = !b;
-  if (b) {
-    document.getElementById("base").target = "tv";
-    document.getElementById("screen").bgColor = "white";
-  } else {
-    document.getElementById("base").target = "";
-    document.getElementById("tv").src = "";
-    document.getElementById("screen").bgColor = "black";
-  }
-}
-
-function p0rn() {
-  var p0rndiv = document.getElementById("p0rndiv");
-  with (p0rndiv.style) {
-    border = "solid 2px red";
-    padding = "0 0 15px 5px";
-  }
-  setTimeout(function() {
-    p0rndiv.removeAttribute("style");
-  },2000);
-}
-
-if (location.hash==="#p0rn") { p0rn(); }
-</SCRIPT>
 </BODY>
 </HTML>
